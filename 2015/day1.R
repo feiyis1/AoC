@@ -12,8 +12,9 @@
 # https://emilhvitfeldt.github.io/rstats-adventofcode/2015.html
 
 # Part 1
-input <- readLines("Documents/AoC/2015/data/day1_data.txt") # readLine: read text lines from a connection
+input <- readLines("2015/data/day1_data.txt") # readLine: read text lines from a connection
 chars <- strsplit(x = input, split = "")[[1]] 
+class(strsplit(x = input, split = ""))
 # Split the elements of a character vector x into substrings 
 # according to the matches to substring split within them.
 
@@ -22,7 +23,15 @@ key <- c("(" = 1, ")" = -1)
 
 sum(key[chars]) # 280
 
+
 # Part 2
 min(which(cumsum(key[chars]) < 0)) # 1797 or 
 min(which(cumsum(key[chars]) == -1)) # 1797
 
+# Question: is cumsum faster than a for/while loop?
+
+vec <- c("a" = 1, "b" = 2)
+chars2 <- c("a", "a", "b", "a")
+sum(vec[chars2]) # 5
+
+# Other members transform the input to data frame.
